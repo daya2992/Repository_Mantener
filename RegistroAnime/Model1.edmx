@@ -4,57 +4,55 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="AnimeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="AnimeModelStoreContainer">
-          <EntitySet Name="RegistroAnime" EntityType="AnimeModel.Store.RegistroAnime" Schema="dbo" store:Type="Tables" />
+      <Schema Namespace="ANIMEModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ANIMEModelStoreContainer">
+          <EntitySet Name="REGISTROANIME" EntityType="ANIMEModel.Store.REGISTROANIME" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
-        <EntityType Name="RegistroAnime">
+        <EntityType Name="REGISTROANIME">
           <Key>
-            <PropertyRef Name="CodAnime" />
+            <PropertyRef Name="CODANIME" />
           </Key>
-          <Property Name="CodAnime" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-          <Property Name="NomAnime" MaxLength="45" Type="varchar" />
-          <Property Name="Temporadas" MaxLength="3" Type="varchar" />
-          <Property Name="Descargar" MaxLength="3" Type="char" />
-          <Property Name="Visto" MaxLength="3" Type="char" />
-          <Property Name="foto" Type="image" />
+          <Property Name="CODANIME" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NOMANIME" Type="varchar" MaxLength="45" />
+          <Property Name="TEMPORADAS" Type="varchar" MaxLength="3" />
+          <Property Name="DESCARGAR" Type="char" MaxLength="3" />
+          <Property Name="VISTO" Type="char" MaxLength="3" />
+          <Property Name="FOTO" Type="image" />
         </EntityType>
-        <Function Name="SP_ULTIMOCODIGO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="AnimeModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="AnimeEntities" p1:LazyLoadingEnabled="true">
-          <FunctionImport Name="SP_ULTIMOCODIGO" ReturnType="Collection(String)" />
-          <EntitySet Name="RegistroAnime" EntityType="AnimeModel.RegistroAnime" />
+      <Schema Namespace="ANIMEModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ANIMEEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="REGISTROANIME" EntityType="ANIMEModel.REGISTROANIME" />
         </EntityContainer>
-        <EntityType Name="RegistroAnime">
+        <EntityType Name="REGISTROANIME">
           <Key>
-            <PropertyRef Name="CodAnime" />
+            <PropertyRef Name="CODANIME" />
           </Key>
-          <Property Name="CodAnime" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="NomAnime" MaxLength="45" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="Temporadas" MaxLength="3" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="Descargar" MaxLength="3" FixedLength="true" Unicode="false" Type="String" />
-          <Property Name="Visto" MaxLength="3" FixedLength="true" Unicode="false" Type="String" />
-          <Property Name="foto" MaxLength="Max" FixedLength="false" Type="Binary" />
+          <Property Name="CODANIME" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMANIME" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="TEMPORADAS" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="DESCARGAR" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="VISTO" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+          <Property Name="FOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AnimeModelStoreContainer" CdmEntityContainer="AnimeEntities">
-          <FunctionImportMapping FunctionImportName="SP_ULTIMOCODIGO" FunctionName="AnimeModel.Store.SP_ULTIMOCODIGO" />
-          <EntitySetMapping Name="RegistroAnime">
-            <EntityTypeMapping TypeName="AnimeModel.RegistroAnime">
-              <MappingFragment StoreEntitySet="RegistroAnime">
-                <ScalarProperty Name="foto" ColumnName="foto" />
-                <ScalarProperty Name="Visto" ColumnName="Visto" />
-                <ScalarProperty Name="Descargar" ColumnName="Descargar" />
-                <ScalarProperty Name="Temporadas" ColumnName="Temporadas" />
-                <ScalarProperty Name="NomAnime" ColumnName="NomAnime" />
-                <ScalarProperty Name="CodAnime" ColumnName="CodAnime" />
+        <EntityContainerMapping StorageEntityContainer="ANIMEModelStoreContainer" CdmEntityContainer="ANIMEEntities">
+          <EntitySetMapping Name="REGISTROANIME">
+            <EntityTypeMapping TypeName="ANIMEModel.REGISTROANIME">
+              <MappingFragment StoreEntitySet="REGISTROANIME">
+                <ScalarProperty Name="CODANIME" ColumnName="CODANIME" />
+                <ScalarProperty Name="NOMANIME" ColumnName="NOMANIME" />
+                <ScalarProperty Name="TEMPORADAS" ColumnName="TEMPORADAS" />
+                <ScalarProperty Name="DESCARGAR" ColumnName="DESCARGAR" />
+                <ScalarProperty Name="VISTO" ColumnName="VISTO" />
+                <ScalarProperty Name="FOTO" ColumnName="FOTO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

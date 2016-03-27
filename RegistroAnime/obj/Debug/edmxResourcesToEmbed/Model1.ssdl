@@ -1,18 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="AnimeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="AnimeModelStoreContainer">
-    <EntitySet Name="RegistroAnime" EntityType="AnimeModel.Store.RegistroAnime" Schema="dbo" store:Type="Tables" />
+<Schema Namespace="ANIMEModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ANIMEModelStoreContainer">
+    <EntitySet Name="REGISTROANIME" EntityType="ANIMEModel.Store.REGISTROANIME" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
-  <EntityType Name="RegistroAnime">
+  <EntityType Name="REGISTROANIME">
     <Key>
-      <PropertyRef Name="CodAnime" />
+      <PropertyRef Name="CODANIME" />
     </Key>
-    <Property Name="CodAnime" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="NomAnime" MaxLength="45" Type="varchar" />
-    <Property Name="Temporadas" MaxLength="3" Type="varchar" />
-    <Property Name="Descargar" MaxLength="3" Type="char" />
-    <Property Name="Visto" MaxLength="3" Type="char" />
-    <Property Name="foto" Type="image" />
+    <Property Name="CODANIME" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NOMANIME" Type="varchar" MaxLength="45" />
+    <Property Name="TEMPORADAS" Type="varchar" MaxLength="3" />
+    <Property Name="DESCARGAR" Type="char" MaxLength="3" />
+    <Property Name="VISTO" Type="char" MaxLength="3" />
+    <Property Name="FOTO" Type="image" />
   </EntityType>
-  <Function Name="SP_ULTIMOCODIGO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
 </Schema>

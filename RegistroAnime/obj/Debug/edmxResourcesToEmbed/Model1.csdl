@@ -1,18 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="AnimeModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityContainer Name="AnimeEntities" p1:LazyLoadingEnabled="true">
-    <FunctionImport Name="SP_ULTIMOCODIGO" ReturnType="Collection(String)" />
-    <EntitySet Name="RegistroAnime" EntityType="AnimeModel.RegistroAnime" />
+<Schema Namespace="ANIMEModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ANIMEEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="REGISTROANIME" EntityType="ANIMEModel.REGISTROANIME" />
   </EntityContainer>
-  <EntityType Name="RegistroAnime">
+  <EntityType Name="REGISTROANIME">
     <Key>
-      <PropertyRef Name="CodAnime" />
+      <PropertyRef Name="CODANIME" />
     </Key>
-    <Property Name="CodAnime" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-    <Property Name="NomAnime" MaxLength="45" FixedLength="false" Unicode="false" Type="String" />
-    <Property Name="Temporadas" MaxLength="3" FixedLength="false" Unicode="false" Type="String" />
-    <Property Name="Descargar" MaxLength="3" FixedLength="true" Unicode="false" Type="String" />
-    <Property Name="Visto" MaxLength="3" FixedLength="true" Unicode="false" Type="String" />
-    <Property Name="foto" MaxLength="Max" FixedLength="false" Type="Binary" />
+    <Property Name="CODANIME" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMANIME" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="TEMPORADAS" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+    <Property Name="DESCARGAR" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="VISTO" Type="String" MaxLength="3" Unicode="false" FixedLength="true" />
+    <Property Name="FOTO" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
 </Schema>

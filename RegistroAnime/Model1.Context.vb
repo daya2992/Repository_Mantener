@@ -10,25 +10,18 @@
 Imports System
 Imports System.Data.Entity
 Imports System.Data.Entity.Infrastructure
-Imports System.Data.Objects
-Imports System.Data.Objects.DataClasses
-Imports System.Linq
 
-Partial Public Class AnimeEntities
+Partial Public Class ANIMEEntities
     Inherits DbContext
 
     Public Sub New()
-        MyBase.New("name=AnimeEntities")
+        MyBase.New("name=ANIMEEntities")
     End Sub
 
     Protected Overrides Sub OnModelCreating(modelBuilder As DbModelBuilder)
         Throw New UnintentionalCodeFirstException()
     End Sub
 
-    Public Property RegistroAnime() As DbSet(Of RegistroAnime)
-
-    Public Overridable Function SP_ULTIMOCODIGO() As ObjectResult(Of String)
-        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction(Of String)("SP_ULTIMOCODIGO")
-    End Function
+    Public Property REGISTROANIME() As DbSet(Of REGISTROANIME)
 
 End Class

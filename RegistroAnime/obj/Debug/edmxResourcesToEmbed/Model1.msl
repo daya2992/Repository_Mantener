@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="AnimeModelStoreContainer" CdmEntityContainer="AnimeEntities">
-    <FunctionImportMapping FunctionImportName="SP_ULTIMOCODIGO" FunctionName="AnimeModel.Store.SP_ULTIMOCODIGO" />
-    <EntitySetMapping Name="RegistroAnime">
-      <EntityTypeMapping TypeName="AnimeModel.RegistroAnime">
-        <MappingFragment StoreEntitySet="RegistroAnime">
-          <ScalarProperty Name="foto" ColumnName="foto" />
-          <ScalarProperty Name="Visto" ColumnName="Visto" />
-          <ScalarProperty Name="Descargar" ColumnName="Descargar" />
-          <ScalarProperty Name="Temporadas" ColumnName="Temporadas" />
-          <ScalarProperty Name="NomAnime" ColumnName="NomAnime" />
-          <ScalarProperty Name="CodAnime" ColumnName="CodAnime" />
+  <EntityContainerMapping StorageEntityContainer="ANIMEModelStoreContainer" CdmEntityContainer="ANIMEEntities">
+    <EntitySetMapping Name="REGISTROANIME">
+      <EntityTypeMapping TypeName="ANIMEModel.REGISTROANIME">
+        <MappingFragment StoreEntitySet="REGISTROANIME">
+          <ScalarProperty Name="CODANIME" ColumnName="CODANIME" />
+          <ScalarProperty Name="NOMANIME" ColumnName="NOMANIME" />
+          <ScalarProperty Name="TEMPORADAS" ColumnName="TEMPORADAS" />
+          <ScalarProperty Name="DESCARGAR" ColumnName="DESCARGAR" />
+          <ScalarProperty Name="VISTO" ColumnName="VISTO" />
+          <ScalarProperty Name="FOTO" ColumnName="FOTO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

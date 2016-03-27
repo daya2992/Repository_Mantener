@@ -23,3 +23,16 @@ D:\Documentos Dayanne\Github_VB\Mantenimiento_ADO\WindowsApplication1\obj\Debug\
 D:\Documentos Dayanne\Github_VB\Mantenimiento_ADO\WindowsApplication1\obj\Debug\WindowsApplication1.exe
 D:\Documentos Dayanne\Github_VB\Mantenimiento_ADO\WindowsApplication1\obj\Debug\WindowsApplication1.xml
 D:\Documentos Dayanne\Github_VB\Mantenimiento_ADO\WindowsApplication1\obj\Debug\WindowsApplication1.pdb
+D:\Documentos Dayanne\Github_VB\Repository_Mantener\WindowsApplication1\bin\Debug\WindowsApplication1.exe.config
+D:\Documentos Dayanne\Github_VB\Repository_Mantener\WindowsApplication1\bin\Debug\WindowsApplication1.exe
+D:\Documentos Dayanne\Github_VB\Repository_Mantener\WindowsApplication1\bin\Debug\WindowsApplication1.pdb
+D:\Documentos Dayanne\Github_VB\Repository_Mantener\WindowsApplication1\bin\Debug\WindowsApplication1.xml
+D:\Documentos Dayanne\Github_VB\Repository_Mantener\WindowsApplication1\obj\Debug\WindowsApplication1.vbprojResolveAssemblyReference.cache
+D:\Documentos Dayanne\Github_VB\Repository_Mantener\WindowsApplication1\obj\Debug\WindowsApplication1.FormReporte.resources
+D:\Documentos Dayanne\Github_VB\Repository_Mantener\WindowsApplication1\obj\Debug\WindowsApplication1.Resources.resources
+D:\Documentos Dayanne\Github_VB\Repository_Mantener\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.GenerateResource.Cache
+D:\Documentos Dayanne\Github_VB\Repository_Mantener\WindowsApplication1\obj\Debug\RdlCompile.cache
+D:\Documentos Dayanne\Github_VB\Repository_Mantener\WindowsApplication1\obj\Debug\RdlCompile.compiled
+D:\Documentos Dayanne\Github_VB\Repository_Mantener\WindowsApplication1\obj\Debug\WindowsApplication1.exe
+D:\Documentos Dayanne\Github_VB\Repository_Mantener\WindowsApplication1\obj\Debug\WindowsApplication1.xml
+D:\Documentos Dayanne\Github_VB\Repository_Mantener\WindowsApplication1\obj\Debug\WindowsApplication1.pdb

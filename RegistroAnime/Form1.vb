@@ -5,9 +5,9 @@ Imports WindowsApplication1
 Public Class Form1
 
     Dim sqlConnection1 As New SqlConnection("data source =.; initial catalog = Anime; user id = sa; password = sql")
-    Dim db As New AnimeEntities
+    Dim db As New ANIMEEntities
     Dim wf As New WindowsApplication1.FormReporte
-    Dim obj As New RegistroAnime
+    Dim obj As New REGISTROANIME
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -27,53 +27,37 @@ Public Class Form1
         sqlConnection1.Close()
     End Sub
 
+
     Private Sub btnRegistrar_Click(sender As Object, e As EventArgs) Handles btnRegistrar.Click
 
-
-        Dim Ms As New MemoryStream
-
+        Dim Ms As New MemoryStream  
+        Me.PictureBox1.Image.Save(Ms, Imaging.ImageFormat.Jpeg)
         Dim DATA() As Byte = Ms.ToArray
-        Dim objanime As New RegistroAnime
+        Dim objanime As New REGISTROANIME
 
         Try
             With objanime
 
-                'If txtNombre.Text = "" And txtTemporadas.Text = "" Then
-                '    MessageBox.Show("Registre datos de Anime")
-                '    txtNombre.BackColor = Color.Red
-                '    .NomAnime = txtNombre.Text
-                'End If
-
-                If txtNombre.Text = "" Or txtTemporadas.Text = "" Then
-                   
+                If txtNombre.Text = "" Then
                     txtNombre.BackColor = Color.Red
-                    txtTemporadas.BackColor = Color.Red
-                    MessageBox.Show("Registre datos de Anime")
+                    MsgBox("Registre Nombre de Anime", MsgBoxStyle.Critical, "Atencion")
+                Else
                     .NomAnime = txtNombre.Text
-                    If txtTemporadas.Text <> "" Then
-                        txtTemporadas.BackColor = Color.White
-                    End If
-                    If txtNombre.Text <> "" Then
-                        txtNombre.BackColor = Color.White
-                    End If
-                
-                    If txtTemporadas.Text = "" Then
-                        ' MessageBox.Show("Registre datos de Anime")
-                        txtTemporadas.BackColor = Color.Red
-                        If txtTemporadas.Text <> "" Then
-                            txtTemporadas.BackColor = Color.White
-                        End If
-                    ElseIf .Temporadas = txtTemporadas.Text Then
-                    
-                    Else
-                        MessageBox.Show("Registre datos de Anime")
-                    End If
                 End If
 
-                If PictureBox1.Image Is Nothing Then
-                    MessageBox.Show("Seleccione una Imagen para el Anime")
+                If txtTemporadas.Text = "" Then
+                    txtTemporadas.BackColor = Color.Red
+                    MsgBox("Registre Cantidad de Temporadas", MsgBoxStyle.Critical, "Atencion")
                 Else
-                    .foto = DATA
+                    .Temporadas = txtTemporadas.Text
+                End If
+
+                If cbxDSi.Checked = False And cbxDNo.Checked = False Then
+                    MsgBox("Seleccione la opción Descargados", MsgBoxStyle.Critical, "Atencion")
+                End If
+
+                If cbxVSi.Checked = False And cbxVNo.Checked = False Then
+                    MsgBox("Seleccione la opción Visto", MsgBoxStyle.Critical, "Atencion")
                 End If
 
 
@@ -89,27 +73,31 @@ Public Class Form1
                     .Visto = cbxVNo.Text
                 End If
 
-                db.RegistroAnime.Add(objanime)
-                db.SaveChanges()
+
+                If PictureBox1.Image Is Nothing Then
+                    MessageBox.Show("Seleccione una Imagen para el Anime")
+                Else
+                    .foto = DATA
+                End If
+
+                db.REGISTROANIME.Add(objanime)
+
                 MessageBox.Show("Registro Anime Correctamente")
                 lblCodigo.Text = .CodAnime
-
+                db.SaveChanges()
                 llenaGrilla()
                 limpiarcampos()
                 autoincrement()
 
             End With
 
-            Me.PictureBox1.Image.Save(Ms, Imaging.ImageFormat.Bmp)
         Catch ex As Exception
             MessageBox.Show("Error de Ingreso")
 
         End Try
 
 
-
     End Sub
-
 
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
@@ -118,12 +106,37 @@ Public Class Form1
         Me.PictureBox1.Image.Save(Ms, Imaging.ImageFormat.Jpeg)
         Dim DATA() As Byte = Ms.ToArray
 
-        Dim objmod As RegistroAnime = db.RegistroAnime.ToList.ElementAt(dgvGrilla.CurrentRow.Index)
+        Dim objmod As REGISTROANIME = db.REGISTROANIME.ToList.ElementAt(dgvGrilla.CurrentRow.Index)
         With objmod
             '.CodAnime = txtCodigo.Text
-            .NomAnime = txtNombre.Text
-            .Temporadas = txtTemporadas.Text
-            .foto = DATA
+            If txtNombre.Text = "" Then
+                txtNombre.BackColor = Color.Red
+                MsgBox("Registre Nombre de Anime", MsgBoxStyle.Critical, "Atencion")
+            Else
+                .NomAnime = txtNombre.Text
+            End If
+
+            If txtTemporadas.Text = "" Then
+                txtTemporadas.BackColor = Color.Red
+                MsgBox("Registre Cantidad de Temporadas", MsgBoxStyle.Critical, "Atencion")
+            Else
+                .Temporadas = txtTemporadas.Text
+            End If
+
+            If PictureBox1.Image Is Nothing Then
+                MsgBox("Seleccione una Imagen para el Anime", MsgBoxStyle.Critical, "Atencion")
+            Else
+                .FOTO = DATA
+
+            End If
+
+            If cbxDSi.Checked = False And cbxDNo.Checked = False Then
+                MsgBox("Seleccione la opción Descargados", MsgBoxStyle.Critical, "Atencion")
+            End If
+
+            If cbxVSi.Checked = False And cbxVNo.Checked = False Then
+                MsgBox("Seleccione la opción Visto", MsgBoxStyle.Critical, "Atencion")
+            End If
 
             If cbxDSi.Checked = True Then
                 objmod.Descargar = cbxDSi.Text
@@ -146,10 +159,10 @@ Public Class Form1
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
 
-        Dim objanime As RegistroAnime = db.RegistroAnime.ToList.ElementAt(dgvGrilla.CurrentRow.Index)
-        db.RegistroAnime.Remove(objanime)
+        Dim objanime As REGISTROANIME = db.REGISTROANIME.ToList.ElementAt(dgvGrilla.CurrentRow.Index)
+        db.REGISTROANIME.Remove(objanime)
         db.SaveChanges()
-        Me.dgvGrilla.DataSource = db.RegistroAnime.ToList
+        Me.dgvGrilla.DataSource = db.REGISTROANIME.ToList
 
         MessageBox.Show("Se eliminó Registro Correctamente")
         autoincrement()
@@ -160,7 +173,7 @@ Public Class Form1
 
         'Buscar la imágen que se visualza en el Picturebox
         Dim buscar As New OpenFileDialog
-        buscar.Filter = "Archivo de Imagen|*.jpg"
+        buscar.Filter = "Archivo de Imagen|*.Jpg"
         'Si se presiona el boton OK
         If buscar.ShowDialog = Windows.Forms.DialogResult.OK Then
             Me.PictureBox1.Image = Image.FromFile(buscar.FileName)
@@ -169,7 +182,7 @@ Public Class Form1
     End Sub
 
     Sub llenaGrilla()
-        dgvGrilla.DataSource = db.RegistroAnime.ToList
+        dgvGrilla.DataSource = db.REGISTROANIME.ToList
     End Sub
 
     Sub limpiarcampos()
@@ -188,7 +201,7 @@ Public Class Form1
 
 
     Private Sub dgvGrilla_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvGrilla.CellClick
-        Dim objmod As RegistroAnime = db.RegistroAnime.ToList.ElementAt(dgvGrilla.CurrentRow.Index)
+        Dim objmod As REGISTROANIME = db.REGISTROANIME.ToList.ElementAt(dgvGrilla.CurrentRow.Index)
 
         With dgvGrilla.CurrentRow
             lblCodigo.Text = .Cells(0).Value

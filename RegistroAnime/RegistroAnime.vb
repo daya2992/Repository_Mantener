@@ -10,12 +10,12 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class RegistroAnime
-    Public Property CodAnime As Integer
-    Public Property NomAnime As String
-    Public Property Temporadas As String
-    Public Property Descargar As String
-    Public Property Visto As String
-    Public Property foto As Byte()
+Partial Public Class REGISTROANIME
+    Public Property CODANIME As Integer
+    Public Property NOMANIME As String
+    Public Property TEMPORADAS As String
+    Public Property DESCARGAR As String
+    Public Property VISTO As String
+    Public Property FOTO As Byte()
 
 End Class
